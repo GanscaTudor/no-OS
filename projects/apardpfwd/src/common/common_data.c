@@ -59,8 +59,8 @@ struct max_spi_init_param adin1110_spi_extra = {
 };
 
 const struct no_os_gpio_init_param adin1110_rst_gpio_ip = {
-	.port = 2,
-	.number = 31,
+	.port = 2, /// 2 - original /// 1 - second board
+	.number = 31, /// 31 - original /// 5 - second board
 	.pull = NO_OS_PULL_NONE,
 	.platform_ops = &max_gpio_ops,
 	.extra = &(struct max_gpio_init_param)
@@ -70,7 +70,7 @@ const struct no_os_gpio_init_param adin1110_rst_gpio_ip = {
 };
 
 const struct no_os_spi_init_param adin1110_spi_ip = {
-	.device_id = 0,
+	.device_id = 0, /// 0 - original /// 4 - second board
 	.max_speed_hz = 25000000,
 	.bit_order = NO_OS_SPI_BIT_ORDER_MSB_FIRST,
 	.mode = NO_OS_SPI_MODE_0,
@@ -80,7 +80,7 @@ const struct no_os_spi_init_param adin1110_spi_ip = {
 };
 
 struct adin1110_init_param adin1110_ip = {
-	.chip_type = ADIN2111,
+	.chip_type = ADIN2111, /// ADIN2111 - original /// ADIN1110 - second board
 	.comm_param = adin1110_spi_ip,
 	.reset_param = adin1110_rst_gpio_ip,
 	.mac_address = {0x00, 0x18, 0x80, 0x03, 0x25, 0x50},

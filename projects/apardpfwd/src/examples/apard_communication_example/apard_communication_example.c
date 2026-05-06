@@ -83,7 +83,7 @@ int example_main()
 		goto remove_uart;
 	}
 
-	ret = port2_cfg(port2_cfg_0, NO_OS_GPIO_HIGH);
+	ret = port2_cfg(port2_cfg_0, NO_OS_GPIO_LOW);
 	if (ret) {
 		pr_err("AD-APARDPFWD output port configuration failed (%d)\n", ret);
 		goto remove_uart;
@@ -121,6 +121,16 @@ int example_main()
 	}
 
 	pr_info("Got device id 0x%X\n", device_id);
+
+	/* Remove broadcast filter and enable promiscuous mode so that
+	   broadcasts are unmatched (forwarded between T1L ports by the switch)
+	   but still delivered to the host via FWD_UNK2HOST for ARP processing */
+	{
+		struct adin1110_desc *adin_desc = (struct adin1110_desc *)lwip_desc->mac_desc;
+		adin1110_broadcast_filter(adin_desc, false);
+		adin1110_set_promisc(adin_desc, 0, true);
+		pr_info("Broadcast filter removed, FWD_UNK2HOST enabled for Port 1\n");
+	}
 
 	tcp_ip.net = &lwip_desc->no_os_net;
 
