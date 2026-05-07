@@ -83,7 +83,7 @@ struct adin1110_init_param adin1110_ip = {
 	.chip_type = ADIN2111, /// ADIN2111 - original /// ADIN1110 - second board
 	.comm_param = adin1110_spi_ip,
 	.reset_param = adin1110_rst_gpio_ip,
-	.mac_address = {0x00, 0x18, 0x80, 0x03, 0x25, 0x50},
+	.mac_address = {0x00, 0x18, 0x80, 0x03, 0x25, 0x50}, /// 0x50 - original /// 0x60 - second board
 	.append_crc = false,
 };
 
@@ -102,6 +102,18 @@ struct no_os_gpio_init_param adin1110_spi_cfg_0 = {
 	.port = 2,
 	.number = 27,
 	.pull = NO_OS_PULL_UP,
+	.platform_ops = &max_gpio_ops,
+	.extra = &(struct max_gpio_init_param)
+	{
+		.vssel = MXC_GPIO_VSSEL_VDDIOH
+	},
+};
+
+/// LED GPIO - wire led + 330 ohm resistor from P2.7 (P7 header pin 1, GPIO_2_27) to GND
+struct no_os_gpio_init_param led_gpio_ip = {
+	.port = 2,
+	.number = 7,
+	.pull = NO_OS_PULL_NONE,
 	.platform_ops = &max_gpio_ops,
 	.extra = &(struct max_gpio_init_param)
 	{
