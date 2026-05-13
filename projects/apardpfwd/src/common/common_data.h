@@ -46,6 +46,7 @@ extern struct no_os_uart_init_param uart_ip;
 extern struct adin1110_init_param adin1110_ip;
 extern struct no_os_gpio_init_param adin1110_spi_cfg_0;
 extern struct no_os_gpio_init_param port2_cfg_0;
+extern struct no_os_gpio_init_param led_gpio_ip;
 
 int spi_cfg_0(const struct no_os_gpio_init_param adin1110_spi_cfg);
 int port2_cfg(const struct no_os_gpio_init_param port2_gpio_cfg, int state);
