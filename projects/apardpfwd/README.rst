@@ -11,12 +11,15 @@ The MaximSDK provides distributions of `arm-none-eabi-` GCC compiler + utilities
 Building the project
 --------------------
 
-The project includes 2 different examples:
+The project includes 3 different examples:
 
 1. apard_communication_example (selected by default) - This example closes the output port of the AD-APARDPFWD-SL and opens a TCP socket to communicate with the AD-APARD32690-SL. It will start a TCP server using the interface ADIN1110 is connected to (the default settings are IP: 192.168.97.50 port: 10000). It will reply back to the connected client with the characters it receives. The actual IP address, netmask, and gateway used at runtime are printed on the serial port connected through the debug adapter.
 
 2. forward_packets_example - may be selected by setting the EXAMPLE variable to forward_packets_example in the main Makefile.
 This example opens the output port of the AD-APARDPFWD-SL to be able to ping the downstream device. It initializes the ADIN1110 Ethernet controller and reads its device ID.
+
+3. apard_led_control_example - may be selected by setting the EXAMPLE variable to apard_led_control_example in the main Makefile.
+This example enables Port 2 on the AD-APARDPFWD-SL and starts a TCP command server on port 10000. It accepts ``LED_ON``, ``LED_OFF``, and ``LED_STATUS`` commands to control an LED on GPIO P2.7.
 
 The host running the client may require network settings in order to communicate with a device using the 192.168.97.50 IP. These usually include manually adding a static IP for the host's network interface. You may go through the following guide on how to do this: https://wiki.analog.com/resources/no-os/misc_guides/static_ip_setting?rev=1715173602 (choose an IP in the 192.168.97.x/24 range that's different from the board's address).
 

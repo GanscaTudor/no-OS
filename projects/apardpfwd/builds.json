@@ -5,6 +5,9 @@
     },
     "forward_packets_example": {
       "flags": "RELEASE=y EXAMPLE=forward_packets_example"
+    },
+    "apard_led_control_example": {
+      "flags": "RELEASE=y EXAMPLE=apard_led_control_example"
     }
   }
 }

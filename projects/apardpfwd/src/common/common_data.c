@@ -109,6 +109,17 @@ struct no_os_gpio_init_param adin1110_spi_cfg_0 = {
 	},
 };
 
+struct no_os_gpio_init_param led_gpio_ip = {
+	.port = 2,
+	.number = 7,
+	.pull = NO_OS_PULL_NONE,
+	.platform_ops = &max_gpio_ops,
+	.extra = &(struct max_gpio_init_param)
+	{
+		.vssel = MXC_GPIO_VSSEL_VDDIOH
+	},
+};
+
 int spi_cfg_0(const struct no_os_gpio_init_param adin1110_spi_cfg)
 {
 	int ret;
