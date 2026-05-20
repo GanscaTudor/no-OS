@@ -1,0 +1,7 @@
+{
+  "maxim": {
+    "apardspoe_led_control_example": {
+      "flags": "RELEASE=y EXAMPLE=apardspoe_led_control_example"
+    }
+  }
+}
