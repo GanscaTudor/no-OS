@@ -8,6 +8,9 @@
     },
     "apard_led_control_example": {
       "flags": "RELEASE=y EXAMPLE=apard_led_control_example"
+    },
+    "apard_servo_control": {
+      "flags": "RELEASE=y EXAMPLE=apard_servo_control"
     }
   }
 }
