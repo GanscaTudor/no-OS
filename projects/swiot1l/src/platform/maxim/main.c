@@ -42,6 +42,10 @@
 
 #include "swiot_fw.h"
 
+#elif CONFIG_SWIOT1L_MOTOR_CONTROL
+
+#include "motor_control.h"
+
 #endif
 
 /***************************************************************************//**
@@ -64,7 +68,9 @@ int main()
 	return swiot1l_mqtt();
 #elif CONFIG_SWIOT1L_DEFAULT_FW
 	return swiot_firmware();
-#elif CONFIG_SWIOT1L_DEFAULT_FW + CONFIG_SWIOT1L_MQTT_EXAMPLE != 1
+#elif CONFIG_SWIOT1L_MOTOR_CONTROL
+	return motor_control_main();
+#else
 #error Invalid example selection. Only one example may be selected.
 #endif
 }

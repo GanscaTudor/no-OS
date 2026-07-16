@@ -16,6 +16,15 @@ config SWIOT1L_MQTT_EXAMPLE
 	  Build the MQTT example firmware that publishes
 	  AD74413R sensor data to an MQTT broker.
 
+config SWIOT1L_MOTOR_CONTROL
+	bool "Motor control firmware"
+	help
+	  Build a minimal firmware that outputs a 10 kHz software
+	  PWM on P1.28 (PMOD pin 4) and accepts SET_PWM/GET_PWM/STOP
+	  text commands over TCP. Used to drive a DRV8874 H-bridge
+	  motor driver. Does not initialize MAX14906, AD74413R, or
+	  ADT75.
+
 endchoice
 
 config SWIOT1L_MQTT_SERVER_IP

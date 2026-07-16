@@ -1,0 +1,16 @@
+{
+  "maxim": {
+    "apard_communication_example": {
+      "flags": "RELEASE=y EXAMPLE=apard_communication_example"
+    },
+    "forward_packets_example": {
+      "flags": "RELEASE=y EXAMPLE=forward_packets_example"
+    },
+    "apard_led_control_example": {
+      "flags": "RELEASE=y EXAMPLE=apard_led_control_example"
+    },
+    "apard_servo_control": {
+      "flags": "RELEASE=y EXAMPLE=apard_servo_control"
+    }
+  }
+}
