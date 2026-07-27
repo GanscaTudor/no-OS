@@ -13,9 +13,11 @@ The MaximSDK provides distributions of `arm-none-eabi-` GCC compiler + utilities
 Building the project
 --------------------
 
-The project includes 1 example:
+The project includes 2 examples:
 
 1. apardspoe_led_control_example (selected by default) - This example is designed for an AD-APARD32690-SL with an AD-APARDSPOE-SL hat chained with an AD-APARDPFWD-SL. It enables Port 2 on the AD-APARDPFWD-SL and starts a TCP command server on port 10000. It accepts ``LED_ON``, ``LED_OFF``, and ``LED_STATUS`` commands to control an LED on GPIO P2.7. The actual IP address, netmask, and gateway used at runtime are printed on the serial port connected through the debug adapter.
+
+2. apardspoe_color_sensor_example - This example is designed for an AD-APARD32690-SL with an AD-APARDSPOE-SL hat chained with an AD-APARDPFWD-SL, and a TCS34725 color sensor wired over I2C. It enables Port 2 on the AD-APARDPFWD-SL and starts a TCP command server on port 10000. It accepts a ``COLOR_READ`` command, returning the current RGBC sample from the TCS34725. Select it with ``make EXAMPLE=apardspoe_color_sensor_example RELEASE=y -j``.
 
 The host running the client may require network settings in order to communicate with a device using the 192.168.97.50 IP. These usually include manually adding a static IP for the host's network interface. You may go through the following guide on how to do this: https://wiki.analog.com/resources/no-os/misc_guides/static_ip_setting?rev=1715173602 (choose an IP in the 192.168.97.x/24 range that's different from the board's address).
 
@@ -26,6 +28,8 @@ The apardspoe_led_control_example may be tested by using netcat on the host:
 	netcat 192.168.97.60 10000
 
 Then type ``LED_ON``, ``LED_OFF``, or ``LED_STATUS`` followed by Enter.
+
+The apardspoe_color_sensor_example may be tested the same way, by typing ``COLOR_READ`` followed by Enter.
 
 #. Open a terminal and navigate to this project directory (if building on Windows, `Git Bash` has to be used).
 

@@ -1,4 +1,4 @@
-EXAMPLE := apardspoe_led_control_example
+EXAMPLE := apardspoe_color_sensor_example
 
 APARD32690_STATIC_IP = y
 

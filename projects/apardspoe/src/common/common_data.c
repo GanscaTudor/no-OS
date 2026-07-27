@@ -34,8 +34,10 @@
 #include "common_data.h"
 #include "maxim_gpio.h"
 #include "maxim_spi.h"
+#include "maxim_i2c.h"
 
 #include "adin1110.h"
+#include "tcs34725.h"
 
 struct max_uart_init_param uart_extra_ip = {
 	.flow = MAX_UART_FLOW_DIS
@@ -50,6 +52,24 @@ struct no_os_uart_init_param uart_ip = {
 	.stop = NO_OS_UART_STOP_1_BIT,
 	.extra = &uart_extra_ip,
 	.platform_ops = &max_uart_ops,
+};
+
+#define TCS34725_I2C_ADDR 0x29
+
+struct max_i2c_init_param tcs34725_i2c_extra = {
+	.vssel = MXC_GPIO_VSSEL_VDDIOH
+};
+
+const struct no_os_i2c_init_param tcs34725_i2c_ip = {
+	.device_id = 1,
+	.max_speed_hz = 100000,
+	.platform_ops = &max_i2c_ops,
+	.slave_address = TCS34725_I2C_ADDR,
+	.extra = &tcs34725_i2c_extra,
+};
+
+struct tcs34725_init_param tcs34725_ip = {
+	.comm_param = &tcs34725_i2c_ip,
 };
 
 struct max_spi_init_param adin1110_spi_extra = {

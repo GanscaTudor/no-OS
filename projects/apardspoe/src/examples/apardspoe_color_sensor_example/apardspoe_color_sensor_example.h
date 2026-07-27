@@ -1,6 +1,7 @@
 /***************************************************************************//**
- *   @file   common_data.h
- *   @brief  Defines common data to be used by all examples.
+ *   @file   apardspoe_color_sensor_example.h
+ *   @brief  Header for the APARDSPOE color sensor example for AD-APARD32690-SL
+ *           with AD-APARDSPOE-SL hat chained with an AD-APARDPFWD-SL.
  *   @author Tudor Gansca (tudor.gansca@analog.com)
 ********************************************************************************
  * Copyright 2025(c) Analog Devices, Inc.
@@ -19,7 +20,7 @@
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. “AS IS” AND ANY EXPRESS OR
+ * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  * EVENT SHALL ANALOG DEVICES, INC. BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -30,37 +31,9 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *******************************************************************************/
-#ifndef __COMMON_DATA_H__
-#define __COMMON_DATA_H__
+#ifndef __APARDSPOE_COLOR_SENSOR_EXAMPLE_H__
+#define __APARDSPOE_COLOR_SENSOR_EXAMPLE_H__
 
-#include "no_os_uart.h"
-#include "no_os_util.h"
-#include "no_os_print_log.h"
+int example_main();
 
-#include "maxim_uart.h"
-#include "maxim_uart_stdio.h"
-#include "maxim_gpio.h"
-#include "maxim_spi.h"
-#include "maxim_i2c.h"
-
-#include "no_os_i2c.h"
-#include "tcs34725.h"
-
-
-#define I2C_DEVICE_ID   1
-#define I2C_OPS         &max_i2c_ops
-#define I2C_EXTRA       &apard32690_i2c_extra
-
-extern struct max_i2c_init_param apard32690_i2c_extra;
-
-extern struct no_os_uart_init_param uart_ip;
-extern struct adin1110_init_param adin1110_ip;
-extern struct no_os_gpio_init_param adin1110_spi_cfg_0;
-extern struct no_os_gpio_init_param port2_cfg_0;
-extern struct no_os_gpio_init_param led_gpio_ip;
-extern struct tcs34725_init_param tcs34725_ip;
-
-int spi_cfg_0(const struct no_os_gpio_init_param adin1110_spi_cfg);
-int port2_cfg(const struct no_os_gpio_init_param port2_gpio_cfg, int state);
-
-#endif /* __COMMON_DATA_H__ */
+#endif /* __APARDSPOE_COLOR_SENSOR_EXAMPLE_H__ */

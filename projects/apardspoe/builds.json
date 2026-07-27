@@ -2,6 +2,9 @@
   "maxim": {
     "apardspoe_led_control_example": {
       "flags": "RELEASE=y EXAMPLE=apardspoe_led_control_example"
+    },
+    "apardspoe_color_sensor_example": {
+      "flags": "RELEASE=y EXAMPLE=apardspoe_color_sensor_example"
     }
   }
 }
